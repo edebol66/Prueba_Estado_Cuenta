@@ -18,6 +18,7 @@ TECNOLOGÍAS UTILIZDAS
 INSTALACIÓN
 
   1- Descargar o clonar repositorio
+  
     git clone https://github.com/edebol66/Prueba_Estado_Cuenta.git
     cd Prueba_Estado_Cuenta
   
