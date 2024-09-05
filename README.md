@@ -22,7 +22,7 @@ INSTALACIÓN
     git clone https://github.com/edebol66/Prueba_Estado_Cuenta.git
     cd Prueba_Estado_Cuenta
   
-  2- Correr el Script que se encuentra en el proyecto dentro de la carpeta: Script SQL
+  2- Correr el Script que se encuentra en el proyecto dentro de la carpeta Script SQL llamado: scriptEstadoCuenta.sql
   
   3- Inicializar la aplicación para poder hacer uso de ella.
 
