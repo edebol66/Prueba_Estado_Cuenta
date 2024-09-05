@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Prueba_Estado_Cuenta_App.Models.ViewModels.HistorialPagoComprasVM>  
+
+
+
+@if (Model != null && Model!.Any())
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h2>Historial de Compras y Pagos</h2>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Transacción</th>
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model!)
+                    {
+                        <tr>
+                            <td>@item.Tipo_Transaccion</td>
+                            <td>@item.Fecha</td>
+                            <td>@item.Descripcion</td>
+                            <td>$@item.Monto</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+}
+else
+{
+    <p>No se encontraron compras o pagos.</p>
+}
+

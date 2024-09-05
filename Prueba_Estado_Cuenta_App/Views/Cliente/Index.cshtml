@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Prueba_Estado_Cuenta_App.Models.Cliente>
+
+    @section Scripts {
+    <script src="~/js/Alerta.js"></script>
+}
+
+@{
+    ViewBag.Title = "Obtener Nombre Cliente";
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="~/css/EstadoCuenta.CSS" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="table-column">
+                <div class="row">
+                <div class="col-8">
+                    <h5>Clientes</h5>
+                </div>
+            </div>
+                <table class="table-wrapperA" >
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th colspan="4">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cliente in Model)
+                        {
+                            <tr>
+                                <td>@cliente.IdCliente</td>
+                                <td>@cliente.Nombre</td>
+                                <td>
+                                    <form asp-controller="EstadoCuenta" asp-action="Index" method="get">
+                                        <input type="hidden" name="idCliente" value="@cliente.IdCliente" />
+                                        <button type="submit" class="btn btn-light">Estado Cuenta</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form asp-controller="Compra" asp-action="Create" method="get">
+                                        <input type="hidden" name="idCliente" value="@cliente.IdCliente" />
+                                        <button type="submit" class="btn btn-light">Realizar Compra</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form asp-controller="Pago" asp-action="Crear" method="get">
+                                        <input type="hidden" name="idCliente" value="@cliente.IdCliente" />
+                                        <button type="submit" class="btn btn-light">Realizar Pago</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form asp-controller="Compra" asp-action="Historial" method="get">
+                                        <input type="hidden" name="IdCliente" value="@cliente.IdCliente" />
+                                        <button type="submit" class="btn btn-light">Ver Historial</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
